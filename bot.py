@@ -21,7 +21,6 @@ async def on_message(message):
        return
 
     if message.author.id == "365975655608745985" and len(message.embeds) != 0:
-        print("got message from poke cord...")
         print(message.embeds)
         print(len(message.embeds))
         first = message.embeds[0]
@@ -48,8 +47,7 @@ async def on_message(message):
  
 
 def getImageSoup(message):
-    filename = random.choice(string.letters) + random.choice(string.letters) + random.choice(string.letters) + '.jpg'
-    print(filename)
+    filename = './images'+random.choice(string.letters) + random.choice(string.letters) + random.choice(string.letters) + '.jpg'
     img_data = requests.get(message).content
     with open(filename, 'wb') as handler:
         handler.write(img_data)
