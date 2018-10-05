@@ -1,0 +1,17 @@
+{
+  "name": "destroyer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "google-images": "^2.1.0",
+    "jsonfile": "^5.0.0",
+    "shelljs": "^0.8.2"
+  }
+}
