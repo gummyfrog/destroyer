@@ -2,7 +2,6 @@ const prefix = "d!"
 const Discord = require("discord.js");
 const GoogleImages = require('google-images');
 const json = require('jsonfile');
-const shell = require('shelljs')
 
 const codes = json.readFileSync('../codes/destroyer/code.json')
 
@@ -90,5 +89,4 @@ client.on("message", message => {
 
 });
 
-shell.exec('python bot.py');
 client.login(codes.token);

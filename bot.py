@@ -73,4 +73,4 @@ async def on_ready():
     print(client.user.id)
 
 
-client.run(codes.token)
+client.run(codes["token"])
