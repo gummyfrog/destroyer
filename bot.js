@@ -5,6 +5,11 @@ const json = require('jsonfile');
 
 const codes = json.readFileSync('../codes/destroyer/code.json')
 
+var balances = {
+
+}
+
+
 const client = new Discord.Client();
 client.on("ready", () => {
   console.log("I am ready!");
@@ -65,14 +70,38 @@ client.on("message", message => {
   isPwned(message);
   dad(message);
 
+  if(message.content.includes("<@486389635484745728>")) {
+    console.log('this is u lol');
+
+    if(!Object.keys(balances).includes(message.author.id)) {
+      balances[message.author.id] = (Math.random()*400);
+    }
+
+    var destroy = (Math.round(Math.random()) * 2 - 1) * (Math.random()*10 * (Math.random()*30))
+
+    message.channel.send(`${message.author} ur balance has been adjusted from ${Math.round(balances[message.author.id])} to ${Math.round(balances[message.author.id]-destroy)}`)
+
+    balances[message.author.id] -= destroy;
+
+  }
+
   if(message.content.toLowerCase().substring(0, prefix.length) != prefix) {
     return;
   }
+
 
   var command = message.content.toLowerCase().substring(prefix.length).split(' ')[0];
   var args = message.content.toLowerCase().substring(prefix.length + command.length + 1).toLowerCase();
   
 
+
+  if(command == 'balance') {
+    if(!Object.keys(balances).includes(message.author.id)) {
+      balances[message.author.id] = (Math.random()*400);
+    }
+
+    message.channel.send(`${Math.round(balances[message.author.id])}`);
+  }
 
   if(command == 'search') {
   	imgClient.search(args, {safe: 'off'})
