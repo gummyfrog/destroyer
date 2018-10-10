@@ -70,7 +70,7 @@ client.on("message", message => {
   isPwned(message);
   dad(message);
 
-  if(message.content.includes("<@486389635484745728>")) {
+  if(message.isMentioned(client.user)) {
     console.log('this is u lol');
 
     if(!Object.keys(balances).includes(message.author.id)) {
